@@ -14,7 +14,7 @@ const App = () => {
   }, [])
 
   return (
-    <smurfContext.Provider value={smurfs}>
+    <smurfContext.Provider value={{smurfs, setSmurfs}}>
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <div>Welcome to your state management version of Smurfs!</div>

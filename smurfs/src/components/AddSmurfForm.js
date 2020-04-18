@@ -1,5 +1,6 @@
-import React, { useState }  from "react";
+import React, { useState, useContext }  from "react";
 import axios from 'axios';
+import { smurfContext } from '../context/context';
 
 import "./AddSmurfForm.css";
 
@@ -10,10 +11,15 @@ const AddSmurfForm = props => {
         height: ''
     });
 
+    const newSmuf = useContext(smurfContext)
+
+    
+
     const AddSmurf = (e) => {
         e.preventDefault();
         axios.post('http://localhost:3333/smurfs', data)
-            .then(res => console.log(res.data, ' posted to api'))
+            .then(res => newSmuf.setSmurfs(res.data))
+            .catch(err=> console.log(err))
         setData({name: '', age: '', height: ''})
 
     }

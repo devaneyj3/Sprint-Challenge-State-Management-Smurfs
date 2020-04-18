@@ -4,17 +4,18 @@ import Smurf from './Smurf';
 import "./List.css";
 
 const List = () => {
-    const smurfs = useContext(smurfContext);
-    console.log(smurfs);
+    const data = useContext(smurfContext);
+
     return (
-        <div className="List">
-            {smurfs.map(smurf => (
+    <div className="List">
+        {data.smurfs.map(smurf =>  {
+            return (
                 <Smurf
-                    key={smurf.id}
-                    name={smurf.name}
-                    age={smurf.age}
-                    height={smurf.height}/>  
-            ))}
+                key={smurf.id}
+                name={smurf.name}
+                age={smurf.age}
+                height={smurf.height}/>  
+        )})}
         </div>
     );
 }
